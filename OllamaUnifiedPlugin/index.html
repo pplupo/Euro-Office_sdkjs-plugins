@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ollama Unified</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="../v1/plugins.js"></script>
+    <script type="text/javascript" src="../v1/plugins-ui.js"></script>
+    <script type="text/javascript" src="code.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Modern Premium Tab Header -->
+        <div class="tab-header">
+            <button class="tab-btn active" onclick="switchTab('rewrite')" data-i18n="tab_rewrite">Rewrite</button>
+            <button class="tab-btn" onclick="switchTab('tone')" data-i18n="tab_tone">Tone</button>
+            <button class="tab-btn" onclick="switchTab('simplify')" data-i18n="tab_simplify">Simplify</button>
+            <button class="tab-btn" onclick="switchTab('tools')" data-i18n="tab_tools">Tools</button>
+            <button class="tab-btn" onclick="switchTab('chat')" data-i18n="tab_chat">Chat</button>
+            <button class="tab-btn" onclick="switchTab('settings')" data-i18n="tab_settings">⚙️</button>
+        </div>
+
+        <!-- REWRITE TAB -->
+        <div id="rewrite" class="tab-content active">
+            <div class="section">
+                <span class="section-title" data-i18n="rewrite_title">Text Processing</span>
+                <div class="btn-grid">
+                    <button class="action-btn" onclick="runProcedure('migliora')" data-i18n="btn_improve">✨ Improve</button>
+                    <button class="action-btn" onclick="runProcedure('espandi')" data-i18n="btn_expand">➕ Expand</button>
+                    <button class="action-btn" onclick="runProcedure('riduci')" data-i18n="btn_reduce">➖ Reduce</button>
+                    <button class="action-btn" onclick="runProcedure('sintetizza')" data-i18n="btn_summarize_short">🎯 Synthesis</button>
+                </div>
+                <button class="primary-btn" onclick="runProcedure('plain')" style="margin-top: 10px;" data-i18n="btn_plain_language">📖 Plain Language</button>
+            </div>
+
+            <div class="section" style="margin-top: 12px;">
+                <span class="section-title" data-i18n="protocols_title">Rewrite Protocols</span>
+                <button class="secondary-btn" onclick="runProcedure('demauro')" id="lbl_proto1" data-i18n="btn_proto1">Basic English (Base)</button>
+                <button class="secondary-btn" onclick="runProcedure('protocollo2')" data-i18n="btn_proto2">Protocol 2 (Medium)</button>
+                <button class="secondary-btn" onclick="runProcedure('protocollo3')" data-i18n="btn_proto3">Protocol 3 (Complex)</button>
+            </div>
+        </div>
+
+        <!-- TONE/SENTIMENT TAB -->
+        <div id="tone" class="tab-content">
+            <div class="section">
+                <span class="section-title" data-i18n="tone_title">Change Style or Tone</span>
+                <p class="section-desc" data-i18n="tone_desc">Select text in the document and apply a specific rewrite style.</p>
+                <div class="btn-grid-3">
+                    <button class="tone-btn" onclick="runProcedure('sentiment_formale')" data-i18n="btn_tone_formal">👔 Formal</button>
+                    <button class="tone-btn" onclick="runProcedure('sentiment_informale')" data-i18n="btn_tone_informal">☕ Informal</button>
+                    <button class="tone-btn" onclick="runProcedure('sentiment_argomentativo')" data-i18n="btn_tone_persuasive">🗣️ Persuasive</button>
+                    <button class="tone-btn" onclick="runProcedure('sentiment_ironico')" data-i18n="btn_tone_ironic">🎭 Ironic</button>
+                    <button class="tone-btn" onclick="runProcedure('sentiment_aggressivo')" data-i18n="btn_tone_assertive">⚡ Assertive</button>
+                    <button class="tone-btn" onclick="runProcedure('sentiment_paraculo')" data-i18n="btn_tone_diplomatic">🦹 Diplomatic</button>
+                    <button class="tone-btn" onclick="runProcedure('sentiment_complottista')" data-i18n="btn_tone_conspiracy">👁️ Conspiratorial</button>
+                    <button class="tone-btn" onclick="runProcedure('sentiment_difensivo')" data-i18n="btn_tone_defensive">🛡️ Defensive</button>
+                    <button class="tone-btn" onclick="runProcedure('sentiment_retorico')" data-i18n="btn_tone_rhetorical">🏛️ Rhetorical</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIMPLIFY TAB (Facilitatore) -->
+        <div id="simplify" class="tab-content">
+            <div class="section">
+                <span class="section-title" data-i18n="facilitator_title">Digital Facilitator</span>
+                <p class="section-desc" data-i18n="facilitator_desc">Make digital or bureaucratic concepts easy for a senior audience.</p>
+                <button class="primary-btn" onclick="runProcedure('facilitator_explain')" data-i18n="btn_explain_simple">💡 Explain Simply</button>
+                <button class="primary-btn" onclick="runProcedure('facilitator_guide')" style="margin-top: 8px;" data-i18n="btn_create_guide">🔢 Create Step-by-Step Guide</button>
+            </div>
+        </div>
+
+        <!-- TOOLS TAB -->
+        <div id="tools" class="tab-content">
+            <div class="section">
+                <span class="section-title" data-i18n="tools_title">Advanced Analysis & Synthesis</span>
+                <button class="secondary-btn" onclick="runProcedure('summarize')" data-i18n="btn_summarize_selection">📋 Summarize Selection</button>
+                <button class="secondary-btn" onclick="analyzeReadability()" data-i18n="btn_readability_analysis">📊 Readability Analysis</button>
+                <div class="synthesis-box" style="margin-top: 10px; border-top: 1px solid #eee; padding-top: 10px;">
+                    <div style="display:flex; gap:5px;">
+                        <button class="secondary-btn" onclick="storeTextA()" style="flex:1;" data-i18n="btn_store_a">💾 Store A</button>
+                        <button class="action-btn" onclick="runProcedure('synthesis')" style="flex:1;" data-i18n="btn_synthesis_ab">🔄 Synthesis A+B</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" style="margin-top: 12px;">
+                <span class="section-title" data-i18n="gen_title">Content Generation</span>
+                <div class="form-group">
+                    <label for="imagePromptType" data-i18n="label_image_prompt_type">Image prompt type:</label>
+                    <select id="imagePromptType">
+                        <!-- Note: The option values correspond to standard keys, we translate via JS in the locale script or keep values simple -->
+                        <option value="Decorativa" data-i18n="opt_img_decor">Decorative (Visual interest)</option>
+                        <option value="Mnemonica" data-i18n="opt_img_mnem">Mnemonic (Recall concepts)</option>
+                        <option value="Rappresentativa" data-i18n="opt_img_repr">Representative (Real photo)</option>
+                        <option value="Organizzativa" data-i18n="opt_img_org">Organizational (Maps/Diagrams)</option>
+                        <option value="Relazionale" data-i18n="opt_img_rel">Relational (Quantitative charts)</option>
+                        <option value="Trasformazionale" data-i18n="opt_img_transf">Transformational (Cycle/Sequence)</option>
+                        <option value="Interpretativa" data-i18n="opt_img_interp">Interpretative (Abstract concepts)</option>
+                    </select>
+                </div>
+                <button class="action-btn" onclick="runProcedure('image_prompt')" data-i18n="btn_generate_image_prompt">🖼️ Generate Image Prompt</button>
+
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+
+                <button class="secondary-btn" onclick="runProcedure('expand_bullets')" data-i18n="btn_expand_bullets">📑 Expand into Bullet List</button>
+                <button class="secondary-btn" onclick="runProcedure('speaker_notes')" data-i18n="btn_speaker_notes">🎙️ Generate Speaker Notes</button>
+                <button class="secondary-btn" onclick="runProcedure('slide_single')" data-i18n="btn_create_json_slide">📐 Create JSON Slide</button>
+            </div>
+        </div>
+
+        <!-- CHAT TAB (With Bubble UI) -->
+        <div id="chat" class="tab-content">
+            <div class="section" style="padding: 10px 8px;">
+                <span class="section-title" data-i18n="chat_title">Chat with Document</span>
+                <div class="rag-controls">
+                    <button id="btnIndex" class="primary-btn" onclick="indexDocument()" data-i18n="btn_index_doc">🔍 Index Document</button>
+                </div>
+                <div id="chatHistory" class="chat-container">
+                    <!-- Loaded dynamically via language picker -->
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="chatInput" placeholder="Ask a question..." onkeypress="handleChatKey(event)" data-i18n-placeholder="chat_input_placeholder">
+                    <button class="send-btn" onclick="sendChatMessage()">➔</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SETTINGS TAB (Embedding model and Language added!) -->
+        <div id="settings" class="tab-content">
+            <div class="section">
+                <span class="section-title" data-i18n="lang_title">Language Settings</span>
+                <div class="form-group">
+                    <label for="pluginLanguage" data-i18n="label_lang">Select Language:</label>
+                    <select id="pluginLanguage" onchange="changeLanguage(this.value)">
+                        <option value="it">🇮🇹 Italiano</option>
+                        <option value="en">🇬🇧 English</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="pt">🇵🇹 Português</option>
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="ro">🇷🇴 Română</option>
+                        <option value="nb">🇳🇴 Norsk</option>
+                        <option value="fi">🇫🇮 Suomi</option>
+                        <option value="sv">🇸🇪 Svenska</option>
+                        <option value="da">🇩🇰 Dansk</option>
+                        <option value="nl">🇳🇱 Nederlands</option>
+                        <option value="fr-ca">🇨🇦 Français (Canada)</option>
+                        <option value="en-ca">🇨🇦 English (Canada)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section" style="margin-top: 12px;">
+                <span class="section-title" data-i18n="server_title">Server Configuration</span>
+                <div class="form-group">
+                    <label for="ollamaUrl" data-i18n="label_ollama_url">Ollama Server URL:</label>
+                    <input type="text" id="ollamaUrl" value="http://localhost:11434">
+                </div>
+                <button class="secondary-btn" onclick="fetchModels()" data-i18n="btn_connect_update">🔄 Connect & Update</button>
+            </div>
+
+            <div class="section" style="margin-top: 12px;">
+                <span class="section-title" data-i18n="models_title">Model Settings</span>
+                <div class="form-group">
+                    <label for="ollamaModel" data-i18n="label_main_model">Main Model (Chat/Generation):</label>
+                    <select id="ollamaModel">
+                        <option value="loading">Loading...</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-top: 8px;">
+                    <label for="ollamaEmbedModel" data-i18n="label_embed_model">Embedding Model (RAG/Search):</label>
+                    <select id="ollamaEmbedModel">
+                        <option value="loading">Loading...</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section" style="margin-top: 12px;">
+                <span class="section-title" data-i18n="system_reqs_title">System Requirements</span>
+                <p class="section-desc" style="font-size: 11px;" id="lbl_sys_reqs_desc">
+                    Start Ollama configuring CORS with plugin origin:<br>
+                    <code>OLLAMA_ORIGINS="*"</code><br>
+                    For embeddings, we recommend installing:<br>
+                    <code>nomic-embed-text</code>
+                </p>
+            </div>
+        </div>
+
+        <!-- Sleek Status Bar -->
+        <div id="status-bar">
+            <span class="status-dot"></span>
+            <span id="status">Ready.</span>
+        </div>
+    </div>
+</body>
+
+</html>
