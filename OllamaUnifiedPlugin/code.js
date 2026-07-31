@@ -9,8 +9,17 @@
     var storedConfig = {
         url: "http://localhost:11434",
         model: "qwen2.5-coder:7b",
-        embedModel: "nomic-embed-text:latest"
+        embedModel: "nomic-embed-text:latest",
+        apiKey: ""
     };
+
+    function buildRequestHeaders(extra) {
+        var headers = extra || {};
+        if (storedConfig.apiKey) {
+            headers["Authorization"] = "Bearer " + storedConfig.apiKey;
+        }
+        return headers;
+    }
 
     var textA = "";
 
@@ -79,6 +88,7 @@
             label_lang: "Seleziona Lingua:",
             server_title: "Configurazione Server",
             label_ollama_url: "URL Server Ollama:",
+            label_api_key: "Chiave API (opzionale):",
             btn_connect_update: "🔄 Connetti e Aggiorna",
             models_title: "Impostazioni Modelli",
             label_main_model: "Modello Principale (Chat/Generazione):",
@@ -169,6 +179,7 @@
             label_lang: "Select Language:",
             server_title: "Server Configuration",
             label_ollama_url: "Ollama Server URL:",
+            label_api_key: "API Key (optional):",
             btn_connect_update: "🔄 Connect & Update",
             models_title: "Model Settings",
             label_main_model: "Main Model (Chat/Generation):",
@@ -259,6 +270,7 @@
             label_lang: "Sélectionner la Langue:",
             server_title: "Configuration du Serveur",
             label_ollama_url: "URL du Serveur Ollama:",
+            label_api_key: "Clé API (optionnelle) :",
             btn_connect_update: "🔄 Connecter & Mettre à Jour",
             models_title: "Paramètres des Modèles",
             label_main_model: "Modèle Principal (Chat/Génération):",
@@ -349,6 +361,7 @@
             label_lang: "Seleccionar Idioma:",
             server_title: "Configuración del Servidor",
             label_ollama_url: "URL del Servidor Ollama:",
+            label_api_key: "Clave API (opcional):",
             btn_connect_update: "🔄 Conectar y Actualizar",
             models_title: "Ajustes de Modelos",
             label_main_model: "Modelo Principal (Chat/Generación):",
@@ -439,6 +452,7 @@
             label_lang: "Selecionar Idioma:",
             server_title: "Configuração do Servidor",
             label_ollama_url: "URL do Servidor Ollama:",
+            label_api_key: "Chave de API (opcional):",
             btn_connect_update: "🔄 Conectar e Atualizar",
             models_title: "Configurações de Modelos",
             label_main_model: "Modelo Principal (Chat/Geração):",
@@ -529,6 +543,7 @@
             label_lang: "Sprache Auswählen:",
             server_title: "Serverkonfiguration",
             label_ollama_url: "Ollama-Server-URL:",
+            label_api_key: "API-Schlüssel (optional):",
             btn_connect_update: "🔄 Verbinden & Aktualisieren",
             models_title: "Modelleinstellungen",
             label_main_model: "Hauptmodell (Chat/Generierung):",
@@ -619,6 +634,7 @@
             label_lang: "Selectează Limba:",
             server_title: "Configurare Server",
             label_ollama_url: "URL Server Ollama:",
+            label_api_key: "Cheie API (opțional):",
             btn_connect_update: "🔄 Conectează și Actualizează",
             models_title: "Setări Modele",
             label_main_model: "Model Principal (Chat/Generare):",
@@ -709,6 +725,7 @@
             label_lang: "Velg Språk:",
             server_title: "Serverkonfigurasjon",
             label_ollama_url: "Ollama Server-URL:",
+            label_api_key: "API-nøkkel (valgfritt):",
             btn_connect_update: "🔄 Koble til og Oppdater",
             models_title: "Modellinnstillinger",
             label_main_model: "Hovedmodell (Chat/Generering):",
@@ -799,6 +816,7 @@
             label_lang: "Valitse Kieli:",
             server_title: "Palvelimen Määritys",
             label_ollama_url: "Ollama-palvelimen URL:",
+            label_api_key: "API-avain (valinnainen):",
             btn_connect_update: "🔄 Yhdistä ja Päivitä",
             models_title: "Mallien Asetukset",
             label_main_model: "Päämalli (Chat/Generointi):",
@@ -889,6 +907,7 @@
             label_lang: "Välj Språk:",
             server_title: "Serverkonfiguration",
             label_ollama_url: "Ollama-server-URL:",
+            label_api_key: "API-nyckel (valfritt):",
             btn_connect_update: "🔄 Anslut och Uppdatera",
             models_title: "Modellinställningar",
             label_main_model: "Huvudmodell (Chat/Generering):",
@@ -979,6 +998,7 @@
             label_lang: "Vælg Sprog:",
             server_title: "Serverkonfiguration",
             label_ollama_url: "Ollama-server-URL:",
+            label_api_key: "API-nøgle (valgfri):",
             btn_connect_update: "🔄 Forbind og Opdater",
             models_title: "Modelindstillinger",
             label_main_model: "Hovedmodel (Chat/Generering):",
@@ -1069,6 +1089,7 @@
             label_lang: "Selecteer Taal:",
             server_title: "Serverconfiguratie",
             label_ollama_url: "Ollama-server-URL:",
+            label_api_key: "API-sleutel (optioneel):",
             btn_connect_update: "🔄 Verbinden en Bijwerken",
             models_title: "Modelinstellingen",
             label_main_model: "Hoofdmodel (Chat/Generatie):",
@@ -1159,6 +1180,7 @@
             label_lang: "Sélectionner la Langue:",
             server_title: "Configuration du Serveur",
             label_ollama_url: "URL du Serveur Ollama:",
+            label_api_key: "Clé API (facultative) :",
             btn_connect_update: "🔄 Connecter et Mettre à Jour",
             models_title: "Paramètres des Modèles",
             label_main_model: "Modèle Principal (Clavardage/Génération):",
@@ -1249,6 +1271,7 @@
             label_lang: "Select Language:",
             server_title: "Server Configuration",
             label_ollama_url: "Ollama Server URL:",
+            label_api_key: "API Key (optional):",
             btn_connect_update: "🔄 Connect & Update",
             models_title: "Model Settings",
             label_main_model: "Main Model (Chat/Generation):",
@@ -1325,11 +1348,17 @@
         var savedUrl = localStorage.getItem("ollama_url");
         var savedModel = localStorage.getItem("ollama_model");
         var savedEmbedModel = localStorage.getItem("ollama_embed_model");
+        var savedApiKey = localStorage.getItem("ollama_api_key");
         var savedLang = localStorage.getItem("ollama_plugin_lang") || "en";
 
         if (savedUrl) {
             document.getElementById("ollamaUrl").value = savedUrl;
             storedConfig.url = savedUrl;
+        }
+
+        if (savedApiKey) {
+            document.getElementById("ollamaApiKey").value = savedApiKey;
+            storedConfig.apiKey = savedApiKey;
         }
 
         // Apply localization before loading models
@@ -1340,6 +1369,11 @@
         document.getElementById("ollamaUrl").addEventListener("change", function () {
             localStorage.setItem("ollama_url", this.value);
             storedConfig.url = this.value;
+        });
+
+        document.getElementById("ollamaApiKey").addEventListener("change", function () {
+            localStorage.setItem("ollama_api_key", this.value);
+            storedConfig.apiKey = this.value;
         });
 
         document.getElementById("ollamaModel").addEventListener("change", function () {
@@ -1390,7 +1424,7 @@
         var url = document.getElementById("ollamaUrl").value.replace(/\/$/, "");
         window.setStatus(locales[currentLang].status_connecting, true);
 
-        fetch(url + "/api/tags")
+        fetch(url + "/api/tags", { headers: buildRequestHeaders() })
             .then(response => response.json())
             .then(data => {
                 var select = document.getElementById("ollamaModel");
@@ -1833,7 +1867,7 @@
 
         fetch(url + "/api/embeddings", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: buildRequestHeaders({ "Content-Type": "application/json" }),
             body: JSON.stringify({ model: embedModel, prompt: docChunks[index] })
         })
             .then(r => {
@@ -1887,7 +1921,7 @@
 
         fetch(url + "/api/embeddings", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: buildRequestHeaders({ "Content-Type": "application/json" }),
             body: JSON.stringify({ model: embedModel, prompt: q })
         })
             .then(r => r.json())
@@ -2413,9 +2447,9 @@
 
         fetch(url + "/api/generate", {
             method: "POST",
-            headers: {
+            headers: buildRequestHeaders({
                 "Content-Type": "application/json"
-            },
+            }),
             body: JSON.stringify(payload)
         })
             .then(response => {

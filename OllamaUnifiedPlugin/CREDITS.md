@@ -22,3 +22,6 @@ This repository hosts and continues to maintain the plugin with his permission.
 - Fixed `<html lang>` not updating when the UI language changes.
 - Rebranded "ONLYOFFICE" references to "EURO-OFFICE" in documentation and code comments.
 - Switched the shipped default UI language from Italian to English.
+- Added an optional API key field (Settings → Server Configuration), sent as an
+  `Authorization: Bearer <key>` header on all requests, for use with token-gated
+  endpoints instead of a local unauthenticated Ollama instance.
