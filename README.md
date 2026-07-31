@@ -34,3 +34,7 @@ directory under `.../Euro-Office/DesktopEditors/data/sdkjs-plugins/`.)
 - **[OllamaUnifiedPlugin](OllamaUnifiedPlugin/)** — local, private AI writing assistant
   (rewrite, tone changes, plain-language simplification, RAG document chat) powered by a
   locally running [Ollama](https://ollama.com) instance. Supports 14 UI languages.
+  Originally created by **Marco Guastavigna** ([@marcoguastavigna](https://github.com/marcoguastavigna)),
+  who released it into the public domain and contributed it to Euro-Office in
+  [Euro-Office/DesktopEditors#38](https://github.com/Euro-Office/DesktopEditors/issues/38),
+  giving explicit permission to host, integrate, and improve it here.
