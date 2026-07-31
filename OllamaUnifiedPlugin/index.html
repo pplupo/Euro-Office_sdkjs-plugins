@@ -160,6 +160,13 @@
                     <input type="text" id="ollamaUrl" value="http://localhost:11434">
                 </div>
                 <div class="form-group" style="margin-top: 8px;">
+                    <label for="backendMode" data-i18n="label_backend_mode">API Type:</label>
+                    <select id="backendMode">
+                        <option value="ollama">Ollama (native)</option>
+                        <option value="openai">OpenAI-compatible</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-top: 8px;">
                     <label for="ollamaApiKey" data-i18n="label_api_key">API Key (optional):</label>
                     <input type="password" id="ollamaApiKey" value="" autocomplete="off">
                 </div>

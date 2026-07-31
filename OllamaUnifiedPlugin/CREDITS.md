@@ -25,3 +25,7 @@ This repository hosts and continues to maintain the plugin with his permission.
 - Added an optional API key field (Settings → Server Configuration), sent as an
   `Authorization: Bearer <key>` header on all requests, for use with token-gated
   endpoints instead of a local unauthenticated Ollama instance.
+- Added an "API Type" toggle (Ollama native vs. OpenAI-compatible) alongside the API
+  key. In OpenAI-compatible mode, requests go to `/models`, `/chat/completions`, and
+  `/embeddings` with the corresponding OpenAI-style request/response shapes, instead
+  of Ollama's native `/api/tags`, `/api/generate`, `/api/embeddings`.

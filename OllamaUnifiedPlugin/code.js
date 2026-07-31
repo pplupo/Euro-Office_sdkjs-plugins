@@ -10,7 +10,8 @@
         url: "http://localhost:11434",
         model: "qwen2.5-coder:7b",
         embedModel: "nomic-embed-text:latest",
-        apiKey: ""
+        apiKey: "",
+        backendMode: "ollama"
     };
 
     function buildRequestHeaders(extra) {
@@ -89,6 +90,7 @@
             server_title: "Configurazione Server",
             label_ollama_url: "URL Server Ollama:",
             label_api_key: "Chiave API (opzionale):",
+            label_backend_mode: "Tipo di API:",
             btn_connect_update: "🔄 Connetti e Aggiorna",
             models_title: "Impostazioni Modelli",
             label_main_model: "Modello Principale (Chat/Generazione):",
@@ -180,6 +182,7 @@
             server_title: "Server Configuration",
             label_ollama_url: "Ollama Server URL:",
             label_api_key: "API Key (optional):",
+            label_backend_mode: "API Type:",
             btn_connect_update: "🔄 Connect & Update",
             models_title: "Model Settings",
             label_main_model: "Main Model (Chat/Generation):",
@@ -271,6 +274,7 @@
             server_title: "Configuration du Serveur",
             label_ollama_url: "URL du Serveur Ollama:",
             label_api_key: "Clé API (optionnelle) :",
+            label_backend_mode: "Type d'API :",
             btn_connect_update: "🔄 Connecter & Mettre à Jour",
             models_title: "Paramètres des Modèles",
             label_main_model: "Modèle Principal (Chat/Génération):",
@@ -362,6 +366,7 @@
             server_title: "Configuración del Servidor",
             label_ollama_url: "URL del Servidor Ollama:",
             label_api_key: "Clave API (opcional):",
+            label_backend_mode: "Tipo de API:",
             btn_connect_update: "🔄 Conectar y Actualizar",
             models_title: "Ajustes de Modelos",
             label_main_model: "Modelo Principal (Chat/Generación):",
@@ -453,6 +458,7 @@
             server_title: "Configuração do Servidor",
             label_ollama_url: "URL do Servidor Ollama:",
             label_api_key: "Chave de API (opcional):",
+            label_backend_mode: "Tipo de API:",
             btn_connect_update: "🔄 Conectar e Atualizar",
             models_title: "Configurações de Modelos",
             label_main_model: "Modelo Principal (Chat/Geração):",
@@ -544,6 +550,7 @@
             server_title: "Serverkonfiguration",
             label_ollama_url: "Ollama-Server-URL:",
             label_api_key: "API-Schlüssel (optional):",
+            label_backend_mode: "API-Typ:",
             btn_connect_update: "🔄 Verbinden & Aktualisieren",
             models_title: "Modelleinstellungen",
             label_main_model: "Hauptmodell (Chat/Generierung):",
@@ -635,6 +642,7 @@
             server_title: "Configurare Server",
             label_ollama_url: "URL Server Ollama:",
             label_api_key: "Cheie API (opțional):",
+            label_backend_mode: "Tip API:",
             btn_connect_update: "🔄 Conectează și Actualizează",
             models_title: "Setări Modele",
             label_main_model: "Model Principal (Chat/Generare):",
@@ -726,6 +734,7 @@
             server_title: "Serverkonfigurasjon",
             label_ollama_url: "Ollama Server-URL:",
             label_api_key: "API-nøkkel (valgfritt):",
+            label_backend_mode: "API-type:",
             btn_connect_update: "🔄 Koble til og Oppdater",
             models_title: "Modellinnstillinger",
             label_main_model: "Hovedmodell (Chat/Generering):",
@@ -817,6 +826,7 @@
             server_title: "Palvelimen Määritys",
             label_ollama_url: "Ollama-palvelimen URL:",
             label_api_key: "API-avain (valinnainen):",
+            label_backend_mode: "API-tyyppi:",
             btn_connect_update: "🔄 Yhdistä ja Päivitä",
             models_title: "Mallien Asetukset",
             label_main_model: "Päämalli (Chat/Generointi):",
@@ -908,6 +918,7 @@
             server_title: "Serverkonfiguration",
             label_ollama_url: "Ollama-server-URL:",
             label_api_key: "API-nyckel (valfritt):",
+            label_backend_mode: "API-typ:",
             btn_connect_update: "🔄 Anslut och Uppdatera",
             models_title: "Modellinställningar",
             label_main_model: "Huvudmodell (Chat/Generering):",
@@ -999,6 +1010,7 @@
             server_title: "Serverkonfiguration",
             label_ollama_url: "Ollama-server-URL:",
             label_api_key: "API-nøgle (valgfri):",
+            label_backend_mode: "API-type:",
             btn_connect_update: "🔄 Forbind og Opdater",
             models_title: "Modelindstillinger",
             label_main_model: "Hovedmodel (Chat/Generering):",
@@ -1090,6 +1102,7 @@
             server_title: "Serverconfiguratie",
             label_ollama_url: "Ollama-server-URL:",
             label_api_key: "API-sleutel (optioneel):",
+            label_backend_mode: "API-type:",
             btn_connect_update: "🔄 Verbinden en Bijwerken",
             models_title: "Modelinstellingen",
             label_main_model: "Hoofdmodel (Chat/Generatie):",
@@ -1181,6 +1194,7 @@
             server_title: "Configuration du Serveur",
             label_ollama_url: "URL du Serveur Ollama:",
             label_api_key: "Clé API (facultative) :",
+            label_backend_mode: "Type d'API :",
             btn_connect_update: "🔄 Connecter et Mettre à Jour",
             models_title: "Paramètres des Modèles",
             label_main_model: "Modèle Principal (Clavardage/Génération):",
@@ -1272,6 +1286,7 @@
             server_title: "Server Configuration",
             label_ollama_url: "Ollama Server URL:",
             label_api_key: "API Key (optional):",
+            label_backend_mode: "API Type:",
             btn_connect_update: "🔄 Connect & Update",
             models_title: "Model Settings",
             label_main_model: "Main Model (Chat/Generation):",
@@ -1349,6 +1364,7 @@
         var savedModel = localStorage.getItem("ollama_model");
         var savedEmbedModel = localStorage.getItem("ollama_embed_model");
         var savedApiKey = localStorage.getItem("ollama_api_key");
+        var savedBackendMode = localStorage.getItem("ollama_backend_mode");
         var savedLang = localStorage.getItem("ollama_plugin_lang") || "en";
 
         if (savedUrl) {
@@ -1359,6 +1375,11 @@
         if (savedApiKey) {
             document.getElementById("ollamaApiKey").value = savedApiKey;
             storedConfig.apiKey = savedApiKey;
+        }
+
+        if (savedBackendMode) {
+            document.getElementById("backendMode").value = savedBackendMode;
+            storedConfig.backendMode = savedBackendMode;
         }
 
         // Apply localization before loading models
@@ -1374,6 +1395,11 @@
         document.getElementById("ollamaApiKey").addEventListener("change", function () {
             localStorage.setItem("ollama_api_key", this.value);
             storedConfig.apiKey = this.value;
+        });
+
+        document.getElementById("backendMode").addEventListener("change", function () {
+            localStorage.setItem("ollama_backend_mode", this.value);
+            storedConfig.backendMode = this.value;
         });
 
         document.getElementById("ollamaModel").addEventListener("change", function () {
@@ -1424,16 +1450,21 @@
         var url = document.getElementById("ollamaUrl").value.replace(/\/$/, "");
         window.setStatus(locales[currentLang].status_connecting, true);
 
-        fetch(url + "/api/tags", { headers: buildRequestHeaders() })
+        var isOpenAiMode = storedConfig.backendMode === "openai";
+        var listUrl = isOpenAiMode ? (url + "/models") : (url + "/api/tags");
+
+        fetch(listUrl, { headers: buildRequestHeaders() })
             .then(response => response.json())
             .then(data => {
                 var select = document.getElementById("ollamaModel");
                 var selectEmbed = document.getElementById("ollamaEmbedModel");
-                
+
                 select.innerHTML = "";
                 selectEmbed.innerHTML = "";
 
-                var models = data.models || [];
+                var models = isOpenAiMode
+                    ? (data.data || []).map(function (m) { return { name: m.id }; })
+                    : (data.models || []);
                 if (models.length === 0) {
                     var opt = document.createElement("option");
                     opt.text = "No models found";
@@ -1865,29 +1896,17 @@
 
         window.setStatus(locales[currentLang].status_indexing + ": " + (index + 1) + "/" + docChunks.length, true);
 
-        fetch(url + "/api/embeddings", {
-            method: "POST",
-            headers: buildRequestHeaders({ "Content-Type": "application/json" }),
-            body: JSON.stringify({ model: embedModel, prompt: docChunks[index] })
-        })
-            .then(r => {
-                if (!r.ok) throw new Error("Embedding API HTTP " + r.status);
-                return r.json();
-            })
-            .then(d => {
-                if (d.embedding) {
-                    docEmbeddings.push(d.embedding);
-                } else {
-                    docEmbeddings.push([]);
-                }
-                processEmbeddings(index + 1);
-            })
-            .catch(e => {
-                console.error(e);
+        embedText(url, embedModel, docChunks[index], function (vec, err) {
+            if (err) {
+                console.error(err);
                 window.setStatus(locales[currentLang].status_indexing_error + embedModel, false);
                 appendChatHistory("Errore", locales[currentLang].rag_system_error);
                 isIndexed = false;
-            });
+                return;
+            }
+            docEmbeddings.push(vec);
+            processEmbeddings(index + 1);
+        });
     }
 
     window.handleChatKey = function (e) {
@@ -1919,53 +1938,45 @@
 
         window.setStatus(locales[currentLang].status_rag_searching, true);
 
-        fetch(url + "/api/embeddings", {
-            method: "POST",
-            headers: buildRequestHeaders({ "Content-Type": "application/json" }),
-            body: JSON.stringify({ model: embedModel, prompt: q })
-        })
-            .then(r => r.json())
-            .then(d => {
-                if (!d.embedding) {
-                    throw new Error("Query embedding empty");
+        embedText(url, embedModel, q, function (queryEmbedding, err) {
+            if (err || !queryEmbedding || queryEmbedding.length === 0) {
+                console.error(err || new Error("Query embedding empty"));
+                appendChatHistory("Errore", locales[currentLang].status_rag_error_query);
+                window.setStatus(locales[currentLang].status_ready, false);
+                return;
+            }
+
+            var similarities = [];
+            for (var i = 0; i < docEmbeddings.length; i++) {
+                if (docEmbeddings[i] && docEmbeddings[i].length > 0) {
+                    var sim = cosineSimilarity(queryEmbedding, docEmbeddings[i]);
+                    similarities.push({ index: i, score: sim });
                 }
+            }
 
-                var similarities = [];
-                for (var i = 0; i < docEmbeddings.length; i++) {
-                    if (docEmbeddings[i] && docEmbeddings[i].length > 0) {
-                        var sim = cosineSimilarity(d.embedding, docEmbeddings[i]);
-                        similarities.push({ index: i, score: sim });
-                    }
-                }
+            similarities.sort((a, b) => b.score - a.score);
+            var top3 = "";
+            var itemsToPick = Math.min(3, similarities.length);
+            for (var k = 0; k < itemsToPick; k++) {
+                top3 += docChunks[similarities[k].index] + "\n\n";
+            }
 
-                similarities.sort((a, b) => b.score - a.score);
-                var top3 = "";
-                var itemsToPick = Math.min(3, similarities.length);
-                for (var k = 0; k < itemsToPick; k++) {
-                    top3 += docChunks[similarities[k].index] + "\n\n";
-                }
+            // Localized system prompts for RAG
+            var ragPrompts = {
+                it: "Usa il seguente contesto estratto dal documento per rispondere alla domanda in modo chiaro. Se nel contesto non trovi la risposta, rispondi usando le tue conoscenze ma avverti il lettore che non è presente nel documento.\n\nCONTESTO:\n" + top3 + "\nDOMANDA: " + q + "\n\nRISPOSTA (in italiano):",
+                en: "Use the following context extracted from the document to answer the question clearly. If the answer cannot be found in the context, answer using your own knowledge but warn the reader that the information is not present in the document.\n\nCONTEXT:\n" + top3 + "\nQUESTION: " + q + "\n\nRESPONSE (in English):",
+                fr: "Utilisez le contexte suivant extrait du document pour répondre à la question de manière claire. Si la réponse n'est pas dans le contexte, répondez avec vos connaissances mais prévenez le lecteur que l'information n'est pas dans le document.\n\nCONTEXTE:\n" + top3 + "\nQUESTION: " + q + "\n\nRÉPONSE (en français) :",
+                es: "Usa el siguiente contexto extraído del documento para responder a la pregunta de manera clara. Si la respuesta no está en el contexto, responde usando tus conocimientos pero advierte al lector que la información no está en el documento.\n\nCONTEXTO:\n" + top3 + "\nPREGUNTA: " + q + "\n\nRESPUESTA (en español):"
+            };
 
-                // Localized system prompts for RAG
-                var ragPrompts = {
-                    it: "Usa il seguente contesto estratto dal documento per rispondere alla domanda in modo chiaro. Se nel contesto non trovi la risposta, rispondi usando le tue conoscenze ma avverti il lettore che non è presente nel documento.\n\nCONTESTO:\n" + top3 + "\nDOMANDA: " + q + "\n\nRISPOSTA (in italiano):",
-                    en: "Use the following context extracted from the document to answer the question clearly. If the answer cannot be found in the context, answer using your own knowledge but warn the reader that the information is not present in the document.\n\nCONTEXT:\n" + top3 + "\nQUESTION: " + q + "\n\nRESPONSE (in English):",
-                    fr: "Utilisez le contexte suivant extrait du document pour répondre à la question de manière claire. Si la réponse n'est pas dans le contexte, répondez avec vos connaissances mais prévenez le lecteur que l'information n'est pas dans le document.\n\nCONTEXTE:\n" + top3 + "\nQUESTION: " + q + "\n\nRÉPONSE (en français) :",
-                    es: "Usa el siguiente contexto extraído del documento para responder a la pregunta de manera clara. Si la respuesta no está en el contexto, responde usando tus conocimientos pero advierte al lector que la información no está en el documento.\n\nCONTEXTO:\n" + top3 + "\nPREGUNTA: " + q + "\n\nRESPUESTA (en español):"
-                };
+            var systemRAGPrompt = ragPrompts[currentLang] || ragPrompts["en"];
 
-                var systemRAGPrompt = ragPrompts[currentLang] || ragPrompts["en"];
-
-                window.setStatus(locales[currentLang].status_rag_generating, true);
-                callOllama(url, model, systemRAGPrompt, false, function (resp) {
-                    appendChatHistory("AI", resp || "Error");
-                    window.setStatus(locales[currentLang].status_ready, false);
-                });
-            })
-            .catch(e => {
-                console.error(e);
-                appendChatHistory("Errore", locales[currentLang].status_rag_error_query + ": " + e.message);
+            window.setStatus(locales[currentLang].status_rag_generating, true);
+            callOllama(url, model, systemRAGPrompt, false, function (resp) {
+                appendChatHistory("AI", resp || "Error");
                 window.setStatus(locales[currentLang].status_ready, false);
             });
+        });
     };
 
     function cosineSimilarity(a, b) {
@@ -2439,6 +2450,34 @@
     }
 
     function callOllama(url, model, prompt, stream, callback) {
+        if (storedConfig.backendMode === "openai") {
+            fetch(url + "/chat/completions", {
+                method: "POST",
+                headers: buildRequestHeaders({
+                    "Content-Type": "application/json"
+                }),
+                body: JSON.stringify({
+                    model: model,
+                    messages: [{ role: "user", content: prompt }],
+                    stream: false
+                })
+            })
+                .then(response => {
+                    if (!response.ok) throw new Error("HTTP Status " + response.status);
+                    return response.json();
+                })
+                .then(data => {
+                    var content = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
+                    callback(content || null);
+                })
+                .catch(err => {
+                    console.error(err);
+                    window.setStatus("API Error", false);
+                    callback(null);
+                });
+            return;
+        }
+
         var payload = {
             model: model,
             prompt: prompt,
@@ -2468,6 +2507,38 @@
                 window.setStatus("Ollama Error", false);
                 callback(null);
             });
+    }
+
+    function embedText(url, model, text, callback) {
+        if (storedConfig.backendMode === "openai") {
+            fetch(url + "/embeddings", {
+                method: "POST",
+                headers: buildRequestHeaders({ "Content-Type": "application/json" }),
+                body: JSON.stringify({ model: model, input: text })
+            })
+                .then(r => {
+                    if (!r.ok) throw new Error("Embedding API HTTP " + r.status);
+                    return r.json();
+                })
+                .then(d => {
+                    var vec = (d.data && d.data[0] && d.data[0].embedding) || [];
+                    callback(vec, null);
+                })
+                .catch(e => callback([], e));
+            return;
+        }
+
+        fetch(url + "/api/embeddings", {
+            method: "POST",
+            headers: buildRequestHeaders({ "Content-Type": "application/json" }),
+            body: JSON.stringify({ model: model, prompt: text })
+        })
+            .then(r => {
+                if (!r.ok) throw new Error("Embedding API HTTP " + r.status);
+                return r.json();
+            })
+            .then(d => callback(d.embedding || [], null))
+            .catch(e => callback([], e));
     }
 
 })(window, undefined);
